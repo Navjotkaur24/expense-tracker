@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color:black;
+        }
+        .para{
+            color:gray;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+        .b0{
+            background-color:rgb(38, 0, 255);
+            width:100%;
+            border:none;
+            border-radius:10px;
+            padding-left:20px;
+            
+        }
+        .div1{
+            display:flex;
+            flex-direction: column;
+            align-items:start;
+        }
+        .para1{
+            color:gray;
+            margin-bottom:0px;
+        }
+        #total-amount{
+            color:white;
+            font-size:35px;
+            margin-bottom:0px;
+            margin-top:20px;
+        }
+        #transactions{
+            color:gray;
+            margin-top:20px;
+        }
+        .b1{
+            background-color:#1a1a1e;
+            width:100%;
+            border:none;
+            border-radius:10px;
+        }
+        .para2{
+            color:gray;
+        
+            
+            
+         } 
+         .d1{
+            display:flex;
+            align-items:start;
+            padding:20px;
+            background-color:#1a1a1e;
+            border-radius:10px;
+            
+         }
+         .input1{
+            background-color:black;
+            
+            border:none;
+            border-radius:4px;
+            padding:5px 7px;
+            margin-right:30px;
+            color:beige;
+         }
+         .input2{
+            background-color:black;
+            border:none;
+            border-radius:4px;
+            padding:5px 10px;
+            width:18%;
+            color:beige;
+
+         }
+         .input3{
+            background-color:black;
+            color:gray;
+            border:none;
+            border-radius:4px;
+            width:50%;
+            margin-right:14px;
+            padding:5px 7px;
+            margin-top:20px;
+         }
+         #add-btn{
+            background-color:blue;
+            color:white;
+            border:none;
+            border-radius:4px;
+            width:20%;
+            padding:10px 10px;
+            cursor:pointer;
+         }
+         .btn2,.btn3,.btn4,.btn5{
+            background-color:#1a1a1e;
+            border:none;
+            border-radius:10px;
+            padding:7px;
+            margin-left:60px;
+            cursor:pointer;
+         }
+         .btn1{
+            background-color:blue;
+             border:none;
+            border-radius:10px;
+            padding:7px 14px;
+            cursor:pointer;
+
+         }
+         .expense-item{
+            color:white;
+            display:flex;
+            align-items:center;
+            gap:12px;
+            background-color:#1a1a1e;
+            padding:20px;
+            border-radius:10px;
+         }
+         .info{
+            flex:1;
+         }
+         .name{
+            margin:0;
+            font-weight:600;
+         }
+         .sub{
+            margin:0;
+            font-size:12px;
+            color:gray;
+         }
+         .icon{
+            width:40px;
+            height:40px;
+            background:#c2410c;
+            border-radius:10px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+         }
+         .dot{
+            width:10px;
+            height:10px;
+            background:orange;
+            border-radius:50%;
+         }
+         .cross{
+            background:#1a1a1e;
+            border:none;
+            color:black;
+            cursor:pointer;
+
+         }
+         .icon2{
+            width:40px;
+            height:40px;
+            background:#1d4ed8;
+            border-radius:10px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+
+         }
+         .dot2{
+             width:10px;
+            height:10px;
+            color:rgb(0, 255, 234);
+             border-radius:50%;
+         }
+         .icon3{
+                width:40px;
+            height:40px;
+            background:#6d28d9;
+            border-radius:10px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+         }
+         .dot3{
+             width:10px;
+            height:10px;
+            color:purple;
+             border-radius:50%;
+         }
+         .icon4{
+              width:40px;
+            height:40px;
+            background:#065f46;
+            border-radius:10px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+         }
+         .dot4{
+              width:10px;
+            height:10px;
+            color:green;
+             border-radius:50%;
+         }
+    </style>
+</head>
+<body>
+    <p class="para">MONTHLY TRACKER</p>
+    <p id="month"></p>
+    <button class="b0">
+        <div class="div1">
+            <p class="para1">TOTAL SPENT</p>
+            <p id="total-amount">&#8377;769</p>
+            <p id="transactions">4 transactions this month</p>
+        </div>
+    </button><br></br>
+    <div class="d1">
+        <div>
+            <p class="para2">ADD EXPENSE</p>
+
+          <span>
+             <input type="text" placeholder="Expense name" class="input1" id="expense-name">
+              <input type="text" placeholder="&#8377;Amount" class="input2" id="expense-amount">
+             
+          </span>
+         <div>
+            <select  id="category" class="input3">
+                <option value=""> Category</option>
+                <option value="food">Food</option>
+                <option value="transport">Transport</option>
+                <option value="study">Study</option>
+                <option value="bills">Bills</option>
+
+            </select>
+          <button id="add-btn">+Add</button>
+         </div>
+
+        </div>
+
+    </div><br></br>
+    <span>
+        <button class="btn1">All</button>
+        <button class="btn2">Food</button>
+        <button class="btn3">Transport</button>
+        <button class="btn4">Study</button>
+        <button class="btn5">Bills</button>
+    </span><br></br>
+    <div id="expense-list">
+    
+        <div class="expense-item">
+            <div class="icon">
+                <div class="dot"></div>
+            </div>
+            <div class="info">
+                <p class="name">Chai& Snacks</p>
+                <p class="sub">Food . Jun 9</p>
+            </div>
+            <div class="right">
+                <span class="amount">&#8377;120</div>
+                <button class="cross">&#10005</button>
+                
+                </span>
+            
+            
+            </div> <br></br>
+            <div
+            class="expense-item">
+            <div class="icon2">
+                <div class="dot"></div>
+            </div>
+           <div class="info">
+             <div class="name">Bus Pass
+                <div class="sub">Transport . Jun 8</div>
+            </div>
+           </div>
+            <div class="right">
+                <span class="amount">&#8377;350</span>
+                    <button class="cross">&#10005</button> 
+            </div>
+            
+
+        </div><br></br>
+        <div class="expense-item">
+            <div class="icon3">
+                <div class="dot"></div>
+            </div>
+            <div class="info">
+                <div class="name">Notebook</div>
+                <div class="sub">Study. Jun 7</div>
+            </div>
+            <div class="right">
+                <span class="amount">&#8377;60</span>
+                <button class="cross">&#10005</button>
+            </div>
+        </div><br></br>
+        <div class="expense-item">
+            <div class="icon4">
+                <div class="dot"></div>
+            </div>
+            <div class="info">
+                <div class="name">Mobile Rechange
+                    <div class="sub">Bills. Jun 6</div>
+                </div>
+                
+                
+            </div>
+            <div class="right">
+                <span class="amount">&#8377;239</span>
+                <button class="cross">&#10005</button>
+            </div>
+        </div>
+        </div>
+        <script>
+           
+      document.getElementById('add-btn').addEventListener('click',()=>{
+        const name=document.getElementById('expense-name').value;
+        const amount=document.getElementById('expense-amount').value;
+        const category=document.getElementById('category').value;
+        console.log(name,amount,category);
+        const newItem=document.createElement('div');
+        newItem.className='expense-item';
+        newItem.innerHTML=`<div class="icon">
+                <div class="dot"></div>
+            </div>
+            <div class="info">
+                <div class="name">${name}
+                    <div class="sub">${category}</div>
+                </div>
+                 <div class="right">
+                <span class="amount">&#8377;${amount}</span>
+                <button class="cross">&#10005</button>
+            </div>
+                `;
+            
+
+                document.getElementById('expense-list').appendChild(newItem);
+                const currentTotal=Number(document.getElementById('total-amount').textContent.replace('₹',''));
+                const newTotal=currentTotal+Number(amount);
+               
+             
+                document.getElementById('total-amount').textContent='₹'+newTotal;
+                    const crossBtn=newItem.querySelector('.cross');
+                 crossBtn.addEventListener('click',()=>{
+         const amount=crossBtn.parentElement.querySelector('.amount').textContent.replace(/[^\d]/g,'');
+              const currentTotal=Number(document.getElementById('total-amount').textContent.replace(/[^\d]/g,''));
+                const newTotal=currentTotal-Number(amount);
+               
+             
+                document.getElementById('total-amount').textContent='₹'+newTotal;
+                newItem.remove();
+       })
+            document.getElementById('expense-name').value='';
+            document.getElementById('expense-amount').value='';
+            document.getElementById('category').value='';
+
+
+      })
+    
+       document.querySelector('.btn2').addEventListener('click',()=>{
+        document.querySelectorAll('.expense-item').forEach((item)=>{
+            if(item.querySelector('.sub').textContent.toLowerCase().includes('food')){
+                item.style.display='flex';
+            }else{
+                item.style.display='none';
+            }
+        })
+
+       });
+       document.querySelector('.btn1').addEventListener('click',()=>{
+        document.querySelectorAll('.expense-item').forEach((item)=>{
+            item.style.display='flex';
+        })
+       });
+       document.querySelector('.btn3').addEventListener('click',()=>{
+        document.querySelectorAll('.expense-item').forEach((item)=>{
+            if(item.querySelector('.sub').textContent.toLowerCase().includes('transport')){
+                item.style.display='flex';
+            }else{
+                item.style.display='none';
+            }
+        })
+       });
+       document.querySelector('.btn4').addEventListener('click',()=>{
+        document.querySelectorAll('.expense-item').forEach((item)=>{
+            if(item.querySelector('.sub').textContent.toLowerCase().includes('study')){
+                item.style.display='flex';
+            }else{
+                item.style.display='none';
+            }
+        })
+       });
+       document.querySelector('.btn5').addEventListener('click',()=>{
+        document.querySelectorAll('.expense-item').forEach((item)=>{
+            if(item.querySelector('.sub').textContent.toLowerCase().includes('bills')){
+                item.style.display='flex';
+            }else{
+                item.style.display='none';
+            }
+        })
+       });
+       document.querySelectorAll('.cross').forEach((crossBtn)=>{
+        crossBtn.addEventListener('click',()=>{
+            const amount=crossBtn.parentElement.querySelector('.amount').textContent.replace(/[^\d]/g,'');
+              const currentTotal=Number(document.getElementById('total-amount').textContent.replace(/[^\d]/g,''));
+                const newTotal=currentTotal-Number(amount);
+               
+             
+                document.getElementById('total-amount').textContent='₹'+newTotal;
+            crossBtn.closest('.expense-item').remove();
+            
+        })
+       });
+     
+        </script>
+    
+    
+</body>
+</html>
